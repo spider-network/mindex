@@ -1,4 +1,4 @@
-Copyright (c) 2014 Michael Voigt
+Copyright (c) 2017 Michael Voigt
 
 MIT License
 

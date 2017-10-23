@@ -1,23 +1,32 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require 'mindex/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "mindex"
+  spec.name          = 'mindex'
   spec.version       = Mindex::VERSION
-  spec.authors       = ["Michael Voigt"]
-  spec.email         = ["michael.voigt@voigt-mail.de"]
-  spec.summary       = %q{Write a short summary. Required.}
-  spec.description   = %q{Write a longer description. Optional.}
-  spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.authors       = ['Michael Voigt']
+  spec.email         = ['michael.voigt@spider-network.com']
+  spec.summary       = 'Mindex provides helper methods to manage your elasticsearch indices'
+  spec.homepage      = 'http://www.spider-network.com'
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  spec.test_files    = spec.files.grep(%r{^(spec)/})
+  spec.require_paths = ['lib']
 
-  spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
+  spec.add_dependency 'elasticsearch'
+  spec.add_dependency 'activesupport'
+  spec.add_dependency 'dry-validation'
+
+  spec.add_development_dependency 'bundler', '> 1'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rubocop-rspec'
+  spec.add_development_dependency 'sequel'
+  spec.add_development_dependency 'sqlite3'
 end
